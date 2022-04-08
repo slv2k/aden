@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :locations
+  resources :locations, only: :index
 
-  resources :services
+  resources :services, only: :index
 
-  resources :types
+  resources :types, only: :index
 
-  resources :listings
+  resources :listings, only: :index
 
   resources :comments
 
   resources :ratings
 
-  resources :users, except: :index
+  resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
