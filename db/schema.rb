@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_08_004111) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_08_234044) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "listing_id", null: false
@@ -21,8 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_004111) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "identities", force: :cascade do |t|
+    t.string "identity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listings", force: :cascade do |t|
-    t.integer "type_id", null: false
+    t.integer "identity_id", null: false
     t.integer "service_id", null: false
     t.integer "location_id", null: false
     t.string "name"
@@ -34,9 +40,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_004111) do
     t.string "long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["identity_id"], name: "index_listings_on_identity_id"
     t.index ["location_id"], name: "index_listings_on_location_id"
     t.index ["service_id"], name: "index_listings_on_service_id"
-    t.index ["type_id"], name: "index_listings_on_type_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -61,12 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_004111) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "types", force: :cascade do |t|
-    t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
@@ -79,9 +79,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_004111) do
 
   add_foreign_key "comments", "listings"
   add_foreign_key "comments", "users"
+  add_foreign_key "listings", "identities"
   add_foreign_key "listings", "locations"
   add_foreign_key "listings", "services"
-  add_foreign_key "listings", "types"
   add_foreign_key "ratings", "listings"
   add_foreign_key "ratings", "users"
 end

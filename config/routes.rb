@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :services, only: :index
 
-  resources :types, only: :index
+  resources :identities, only: :index
 
   resources :listings, only: :index
 
