@@ -91,9 +91,7 @@ label {
 }
 
 #identitydropdown {
-  /* background-color: red; */
   width: 81.5%;
-  /* position: absolute; */
 }
 
 #locationdropdown {
@@ -111,14 +109,19 @@ label {
   margin-top: -55px;
 }
 
-#firstarrow {
-  /* margin-left: 400px; */
+#searchbutton {
+  background-color: transparent;
+  border: none;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 23px;
+  letter-spacing: 5px;
 }
 
-#secondarrow {
-
-}
-
-#thirdarrow {
-
+#searchbutton:hover {
+  color: rgba(255, 255, 255, 1);
 }
