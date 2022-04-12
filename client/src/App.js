@@ -3,17 +3,20 @@ import ListingsContainer from './components/ListingsContainer';
 import { useState, useEffect } from "react";
 
 function App() {
+  const [showListings, toggleShowListings] = useState(false);
   const [listings, setListings] = useState([]);
+  const [filteredListings, setFilteredListings] = useState([]);
   const [identity, setIdentity] = useState("");
   const [service, setService] = useState("");
   const [location, setLocation] = useState("");
 
-  useEffect(() => { console.log("useeffect detector:", identity)}, [identity])
-  useEffect(() => { console.log("useeffect detector:", service)}, [service])
-  useEffect(() => { console.log("useeffect detector:", location)}, [location])
+  // useEffect(() => { console.log("useeffect detector:", identity)}, [identity])
+  // useEffect(() => { console.log("useeffect detector:", service)}, [service])
+  // useEffect(() => { console.log("useeffect detector:", location)}, [location])
 
   useEffect(() => {
     fetch("/listings")
+    .then((r) => r.json())
     .then((listingsArray) => {
       setListings(listingsArray)
     });
@@ -39,14 +42,96 @@ function App() {
     setLocation(e.currentTarget.value);
   }
 
+  // filter logic
+  let identityCode;
+  let serviceCode;
+  let locationCode;
+  let shownListings;
+
   
 
-  function handleSearch(e) {
-    e.preventDefault();
-    console.log('clicked');
+  function filter() {
+    setFilteredListings(listings)
+
+    let findBoth = function(element) {
+      return element.identity_id === 3;
+    };
+
+    let sortIdentity = function(element) {
+      return element.identity_id === identityCode;
+    };
+
+    let sortService = function(element) {
+      return element.service_id === serviceCode;
+    };
+
+    let sortLocation = function(element) {
+      return element.location_id === locationCode;
+    };
+
+    let currentState = listings.filter(findBoth);
+    let foundByIdentity = listings.filter(sortIdentity);
+
+    currentState = [...currentState, foundByIdentity];
+    currentState = currentState.filter(sortService);
+    currentState = currentState.filter(sortLocation);
+
+    // console.log(currentState);
+    return currentState;
   }
 
-  
+  useEffect(() => {
+    switch(identity) {
+      case "transfeminine":
+        identityCode = 1;
+        break;
+      case "transmasculine":
+        identityCode = 2;
+        break;
+    }
+
+    switch(service) {
+      case "hormones":
+        serviceCode = 1;
+        break;
+      case "therapy":
+        serviceCode = 2;
+        break;
+      case "community":
+        serviceCode = 3;
+        break;
+    }
+
+    switch(location) {
+      case "traverse city":
+        locationCode = 1;
+        break;
+      case "lansing":
+        locationCode = 2;
+        break;
+      case "kalamazoo":
+        locationCode = 3;
+        break;
+      case "flint":
+        locationCode = 4;
+        break;
+      case "detroit":
+        locationCode = 5;
+        break;
+    }
+
+    if (identity !== "" && service !== "" && location !== "") {
+      setFilteredListings(filter());
+      // filteredListings = filter();
+      if (showListings === false) {
+        toggleShowListings(true);
+      }
+    } else {
+      shownListings = null;
+    }
+  }, [identity, service, location])
+
+  // let filteredListings;
 
   return (
     <div id="appcontainer">
@@ -82,10 +167,10 @@ function App() {
             <option value="detroit">detroit</option>
           </select>
           <div className="arrow"></div>
-          <button type="submit" id="searchbutton" onClick={handleSearch}>search</button>
         </form>
       </div>
-      <ListingsContainer />
+      {showListings ? <ListingsContainer listings={filteredListings} /> : null}
+      {/* <ListingsContainer listings={listings} /> */}
     </div>
   );
 }

@@ -10,6 +10,13 @@ Comment.destroy_all
 
 "planting new seeds..."
 
+# users:
+# user1 = User.create(username: "sam", password: "password", email: "test@test.com", bio: "lorem ipsum dolor sit amet", avatar: "")
+
+# comments:
+# comment1 = Comment.create(user_id: user1.id, listing_id: hormones6.id, text: "lorem ipsum dolor sit amet")
+# comment2 = Comment.create(user_id: user1.id, listing_id: hormones6.id, text: "lorem ipsum dolor sit amet")
+
 # identities:
 transfem = Identity.create(identity: "transfem")
 transmasc = Identity.create(identity: "transmasc")
