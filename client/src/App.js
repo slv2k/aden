@@ -70,10 +70,13 @@ function App() {
     };
 
     let currentState = listings.filter(findBoth);
+    // console.log(currentState)
     let foundByIdentity = listings.filter(sortIdentity);
 
     currentState = [...currentState, foundByIdentity];
+    // console.log(currentState)
     currentState = currentState.filter(sortService);
+    console.log("sort service", currentState)
     currentState = currentState.filter(sortLocation);
 
     // console.log(currentState);
@@ -92,6 +95,7 @@ function App() {
 
     switch(service) {
       case "hormones":
+        console.log("detected as hormones")
         serviceCode = 1;
         break;
       case "therapy":
@@ -120,8 +124,12 @@ function App() {
         break;
     }
 
+    console.log(identityCode, serviceCode, locationCode)
+
     if (identity !== "" && service !== "" && location !== "") {
       setFilteredListings(filter());
+      // console.log(filteredListings)
+      // console.log(listings)
       // filteredListings = filter();
       if (showListings === false) {
         toggleShowListings(true);
@@ -130,8 +138,6 @@ function App() {
       shownListings = null;
     }
   }, [identity, service, location])
-
-  // let filteredListings;
 
   return (
     <div id="appcontainer">

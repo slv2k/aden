@@ -17,9 +17,11 @@ function ListingsContainer({ listings }) {
         )
     })
 
+    // console.log("listing from listingscontainer", listings)
+
     return (
-        <div>listings container
-            <Map />
+        <div>listings container shown
+            {/* <Map /> */}
             <div id='listingscontainer'>
                 {listingCards}
             </div>

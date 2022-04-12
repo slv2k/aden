@@ -1,21 +1,17 @@
-"uprooting old seeds..."
-User.destroy_all
-Identity.destroy_all
-Service.destroy_all
-Rating.destroy_all
-Location.destroy_all
-Listing.destroy_all
-Comment.destroy_all
-"old seeds uprooted"
+# "uprooting old seeds..."
+# User.destroy_all
+# Identity.destroy_all
+# Service.destroy_all
+# Rating.destroy_all
+# Location.destroy_all
+# Listing.destroy_all
+# Comment.destroy_all
+# "old seeds uprooted"
 
 "planting new seeds..."
 
 # users:
-# user1 = User.create(username: "sam", password: "password", email: "test@test.com", bio: "lorem ipsum dolor sit amet", avatar: "")
-
-# comments:
-# comment1 = Comment.create(user_id: user1.id, listing_id: hormones6.id, text: "lorem ipsum dolor sit amet")
-# comment2 = Comment.create(user_id: user1.id, listing_id: hormones6.id, text: "lorem ipsum dolor sit amet")
+user1 = User.create(username: "sam", password: "password", email: "test@test.com", bio: "lorem ipsum dolor sit amet", avatar: "")
 
 # identities:
 transfem = Identity.create(identity: "transfem")
@@ -138,5 +134,9 @@ hormones8 = Listing.create(
     lat: "42.40752",
     long: "-83.09501"
 )
+
+# comments:
+comment1 = Comment.create(user_id: user1.id, listing_id: hormones6.id, text: "lorem ipsum dolor sit amet")
+comment2 = Comment.create(user_id: user1.id, listing_id: hormones6.id, text: "lorem ipsum dolor sit amet")
 
 "finished planting"
