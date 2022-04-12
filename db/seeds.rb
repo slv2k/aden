@@ -12,6 +12,8 @@
 
 # users:
 user1 = User.create(username: "sam", password: "password", email: "test@test.com", bio: "lorem ipsum dolor sit amet", avatar: "")
+user2 = User.create(username: "ryan", password: "password", email: "test@test.com", bio: "lorem ipsum dolor sit amet", avatar: "")
+
 
 # identities:
 transfem = Identity.create(identity: "transfem")
@@ -136,7 +138,11 @@ hormones8 = Listing.create(
 )
 
 # comments:
-comment1 = Comment.create(user_id: user1.id, listing_id: hormones6.id, text: "lorem ipsum dolor sit amet")
-comment2 = Comment.create(user_id: user1.id, listing_id: hormones6.id, text: "lorem ipsum dolor sit amet")
+comment1 = Comment.create(user_id: user1.id, listing_id: hormones6.id, username: user1.username, text: "lorem ipsum dolor sit amet")
+comment2 = Comment.create(user_id: user1.id, listing_id: hormones6.id, username: user1.username, text: "lorem ipsum dolor sit amet")
+comment3 = Comment.create(user_id: user2.id, listing_id: hormones6.id, username: user2.username, text: "lorem ipsum dolor sit amet")
+
 
 "finished planting"
+
+# RESETTING DB AND SEEDS: rails db:reset db:seed

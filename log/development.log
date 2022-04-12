@@ -15302,3 +15302,753 @@ Processing by ListingsController#index as */*
 Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.8ms | Allocations: 17993)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUsernameColToComments (20220412215459)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUsernameColToComments (20220412215459)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "comments" ADD "username" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220412215459"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_comments_on_listing_id" ON "comments" ("listing_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "identities"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "identities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "identity" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "listings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "listings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar, "address" varchar, "description" varchar, "website" varchar, "phone" varchar, "lat" varchar, "long" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_listings_on_identity_id" ON "listings" ("identity_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_listings_on_location_id" ON "listings" ("location_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_listings_on_service_id" ON "listings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "locations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "locations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "location" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "ratings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_listing_id" ON "ratings" ("listing_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "services"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "services" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "service" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password" varchar, "email" varchar, "bio" varchar, "avatar" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_user_id" ON "acomments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_listing_id" ON "acomments" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acomments" ("id","user_id","listing_id","text","created_at","updated_at","username")
+                     SELECT "id","user_id","listing_id","text","created_at","updated_at","username" FROM "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar DEFAULT NULL, CONSTRAINT "fk_rails_a71be3ac94"
+FOREIGN KEY ("listing_id")
+  REFERENCES "listings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_listing_id" ON "comments" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("id","user_id","listing_id","text","created_at","updated_at","username")
+                     SELECT "id","user_id","listing_id","text","created_at","updated_at","username" FROM "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_user_id" ON "acomments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_listing_id" ON "acomments" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acomments" ("id","user_id","listing_id","text","created_at","updated_at","username")
+                     SELECT "id","user_id","listing_id","text","created_at","updated_at","username" FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar DEFAULT NULL, CONSTRAINT "fk_rails_a71be3ac94"
+FOREIGN KEY ("listing_id")
+  REFERENCES "listings" ("id")
+, CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_listing_id" ON "comments" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("id","user_id","listing_id","text","created_at","updated_at","username")
+                     SELECT "id","user_id","listing_id","text","created_at","updated_at","username" FROM "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alistings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_service_id" ON "alistings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_location_id" ON "alistings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_identity_id" ON "alistings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "alistings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "listings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "listings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "listings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b657f9e609"
+FOREIGN KEY ("identity_id")
+  REFERENCES "identities" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_identity_id" ON "listings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_location_id" ON "listings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_service_id" ON "listings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "listings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "alistings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alistings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alistings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_service_id" ON "alistings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_location_id" ON "alistings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_identity_id" ON "alistings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "alistings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "listings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "listings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "listings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b657f9e609"
+FOREIGN KEY ("identity_id")
+  REFERENCES "identities" ("id")
+, CONSTRAINT "fk_rails_7c4c59488b"
+FOREIGN KEY ("location_id")
+  REFERENCES "locations" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_identity_id" ON "listings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_location_id" ON "listings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_service_id" ON "listings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "listings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "alistings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "alistings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alistings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_service_id" ON "alistings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_location_id" ON "alistings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_identity_id" ON "alistings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "alistings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "listings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "listings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "listings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7c4c59488b"
+FOREIGN KEY ("location_id")
+  REFERENCES "locations" ("id")
+, CONSTRAINT "fk_rails_b657f9e609"
+FOREIGN KEY ("identity_id")
+  REFERENCES "identities" ("id")
+, CONSTRAINT "fk_rails_92d22cebfd"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_identity_id" ON "listings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_location_id" ON "listings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_service_id" ON "listings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "listings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "alistings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "alistings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_listing_id" ON "aratings" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aratings" ("id","user_id","listing_id","rating","created_at","updated_at")
+                     SELECT "id","user_id","listing_id","rating","created_at","updated_at" FROM "ratings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_24b70203d1"
+FOREIGN KEY ("listing_id")
+  REFERENCES "listings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_listing_id" ON "ratings" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ratings" ("id","user_id","listing_id","rating","created_at","updated_at")
+                     SELECT "id","user_id","listing_id","rating","created_at","updated_at" FROM "aratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_listing_id" ON "aratings" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aratings" ("id","user_id","listing_id","rating","created_at","updated_at")
+                     SELECT "id","user_id","listing_id","rating","created_at","updated_at" FROM "ratings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_24b70203d1"
+FOREIGN KEY ("listing_id")
+  REFERENCES "listings" ("id")
+, CONSTRAINT "fk_rails_a7dfeb9f5f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_listing_id" ON "ratings" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ratings" ("id","user_id","listing_id","rating","created_at","updated_at")
+                     SELECT "id","user_id","listing_id","rating","created_at","updated_at" FROM "aratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220412215459)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220408003833),
+(20220408003932),
+(20220408004002),
+(20220408004037),
+(20220408004050),
+(20220408004100),
+(20220408004111),
+(20220408232611),
+(20220408233033),
+(20220408233213),
+(20220408234044);
+
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-12 21:59:49.610589"], ["updated_at", "2022-04-12 21:59:49.610589"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "122cade73f8eb6cbd4ba3cff2a926a53337a2ab7"], ["created_at", "2022-04-12 21:59:49.612856"], ["updated_at", "2022-04-12 21:59:49.612856"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_comments_on_listing_id" ON "comments" ("listing_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "identities"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "identities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "identity" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "listings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "listings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar, "address" varchar, "description" varchar, "website" varchar, "phone" varchar, "lat" varchar, "long" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_listings_on_identity_id" ON "listings" ("identity_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_listings_on_location_id" ON "listings" ("location_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_listings_on_service_id" ON "listings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "locations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "locations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "location" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "ratings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_listing_id" ON "ratings" ("listing_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "services"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "services" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "service" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password" varchar, "email" varchar, "bio" varchar, "avatar" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_user_id" ON "acomments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_listing_id" ON "acomments" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acomments" ("id","user_id","listing_id","text","created_at","updated_at","username")
+                     SELECT "id","user_id","listing_id","text","created_at","updated_at","username" FROM "comments"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar DEFAULT NULL, CONSTRAINT "fk_rails_a71be3ac94"
+FOREIGN KEY ("listing_id")
+  REFERENCES "listings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_listing_id" ON "comments" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("id","user_id","listing_id","text","created_at","updated_at","username")
+                     SELECT "id","user_id","listing_id","text","created_at","updated_at","username" FROM "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_user_id" ON "acomments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_listing_id" ON "acomments" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acomments" ("id","user_id","listing_id","text","created_at","updated_at","username")
+                     SELECT "id","user_id","listing_id","text","created_at","updated_at","username" FROM "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "text" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "username" varchar DEFAULT NULL, CONSTRAINT "fk_rails_a71be3ac94"
+FOREIGN KEY ("listing_id")
+  REFERENCES "listings" ("id")
+, CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_listing_id" ON "comments" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("id","user_id","listing_id","text","created_at","updated_at","username")
+                     SELECT "id","user_id","listing_id","text","created_at","updated_at","username" FROM "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "acomments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alistings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_service_id" ON "alistings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_location_id" ON "alistings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_identity_id" ON "alistings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "alistings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "listings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "listings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "listings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b657f9e609"
+FOREIGN KEY ("identity_id")
+  REFERENCES "identities" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_identity_id" ON "listings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_location_id" ON "listings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_service_id" ON "listings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "listings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "alistings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alistings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alistings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_service_id" ON "alistings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_location_id" ON "alistings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_identity_id" ON "alistings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "alistings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "listings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "listings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "listings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b657f9e609"
+FOREIGN KEY ("identity_id")
+  REFERENCES "identities" ("id")
+, CONSTRAINT "fk_rails_7c4c59488b"
+FOREIGN KEY ("location_id")
+  REFERENCES "locations" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_identity_id" ON "listings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_location_id" ON "listings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_service_id" ON "listings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "listings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "alistings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alistings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alistings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_service_id" ON "alistings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_location_id" ON "alistings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_alistings_on_identity_id" ON "alistings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "alistings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "listings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "listings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "listings" ("id" integer NOT NULL PRIMARY KEY, "identity_id" integer NOT NULL, "service_id" integer NOT NULL, "location_id" integer NOT NULL, "name" varchar DEFAULT NULL, "address" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "website" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7c4c59488b"
+FOREIGN KEY ("location_id")
+  REFERENCES "locations" ("id")
+, CONSTRAINT "fk_rails_b657f9e609"
+FOREIGN KEY ("identity_id")
+  REFERENCES "identities" ("id")
+, CONSTRAINT "fk_rails_92d22cebfd"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_identity_id" ON "listings" ("identity_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_location_id" ON "listings" ("location_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_listings_on_service_id" ON "listings" ("service_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "listings" ("id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at")
+                     SELECT "id","identity_id","service_id","location_id","name","address","description","website","phone","lat","long","created_at","updated_at" FROM "alistings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alistings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_listing_id" ON "aratings" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aratings" ("id","user_id","listing_id","rating","created_at","updated_at")
+                     SELECT "id","user_id","listing_id","rating","created_at","updated_at" FROM "ratings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_24b70203d1"
+FOREIGN KEY ("listing_id")
+  REFERENCES "listings" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_listing_id" ON "ratings" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ratings" ("id","user_id","listing_id","rating","created_at","updated_at")
+                     SELECT "id","user_id","listing_id","rating","created_at","updated_at" FROM "aratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_listing_id" ON "aratings" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aratings" ("id","user_id","listing_id","rating","created_at","updated_at")
+                     SELECT "id","user_id","listing_id","rating","created_at","updated_at" FROM "ratings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "listing_id" integer NOT NULL, "rating" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_24b70203d1"
+FOREIGN KEY ("listing_id")
+  REFERENCES "listings" ("id")
+, CONSTRAINT "fk_rails_a7dfeb9f5f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_listing_id" ON "ratings" ("listing_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ratings" ("id","user_id","listing_id","rating","created_at","updated_at")
+                     SELECT "id","user_id","listing_id","rating","created_at","updated_at" FROM "aratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220412215459)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220408003833),
+(20220408003932),
+(20220408004002),
+(20220408004037),
+(20220408004050),
+(20220408004100),
+(20220408004111),
+(20220408232611),
+(20220408233033),
+(20220408233213),
+(20220408234044);
+
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-12 21:59:49.671915"], ["updated_at", "2022-04-12 21:59:49.671915"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2022-04-12 21:59:49.673502"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "122cade73f8eb6cbd4ba3cff2a926a53337a2ab7"], ["created_at", "2022-04-12 21:59:49.674996"], ["updated_at", "2022-04-12 21:59:49.674996"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "email", "bio", "avatar", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "sam"], ["password", "[FILTERED]"], ["email", "test@test.com"], ["bio", "lorem ipsum dolor sit amet"], ["avatar", ""], ["created_at", "2022-04-12 21:59:49.685661"], ["updated_at", "2022-04-12 21:59:49.685661"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "email", "bio", "avatar", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ryan"], ["password", "[FILTERED]"], ["email", "test@test.com"], ["bio", "lorem ipsum dolor sit amet"], ["avatar", ""], ["created_at", "2022-04-12 21:59:49.687025"], ["updated_at", "2022-04-12 21:59:49.687025"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Create (0.1ms)[0m  [1m[32mINSERT INTO "identities" ("identity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["identity", "transfem"], ["created_at", "2022-04-12 21:59:49.690085"], ["updated_at", "2022-04-12 21:59:49.690085"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Create (0.1ms)[0m  [1m[32mINSERT INTO "identities" ("identity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["identity", "transmasc"], ["created_at", "2022-04-12 21:59:49.691272"], ["updated_at", "2022-04-12 21:59:49.691272"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Create (0.1ms)[0m  [1m[32mINSERT INTO "identities" ("identity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["identity", "both"], ["created_at", "2022-04-12 21:59:49.692388"], ["updated_at", "2022-04-12 21:59:49.692388"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mService Create (0.1ms)[0m  [1m[32mINSERT INTO "services" ("service", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["service", "hormones"], ["created_at", "2022-04-12 21:59:49.695221"], ["updated_at", "2022-04-12 21:59:49.695221"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (0.1ms)[0m  [1m[32mINSERT INTO "locations" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "traverse city"], ["created_at", "2022-04-12 21:59:49.698136"], ["updated_at", "2022-04-12 21:59:49.698136"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (0.1ms)[0m  [1m[32mINSERT INTO "locations" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "lansing"], ["created_at", "2022-04-12 21:59:49.699344"], ["updated_at", "2022-04-12 21:59:49.699344"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (0.1ms)[0m  [1m[32mINSERT INTO "locations" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "kalamazoo"], ["created_at", "2022-04-12 21:59:49.700418"], ["updated_at", "2022-04-12 21:59:49.700418"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (0.1ms)[0m  [1m[32mINSERT INTO "locations" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "flint"], ["created_at", "2022-04-12 21:59:49.701527"], ["updated_at", "2022-04-12 21:59:49.701527"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLocation Create (0.1ms)[0m  [1m[32mINSERT INTO "locations" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "detroit"], ["created_at", "2022-04-12 21:59:49.702628"], ["updated_at", "2022-04-12 21:59:49.702628"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Load (0.0ms)[0m  [1m[34mSELECT "identities".* FROM "identities" WHERE "identities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mService Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("identity_id", "service_id", "location_id", "name", "address", "description", "website", "phone", "lat", "long", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["identity_id", 3], ["service_id", 1], ["location_id", 1], ["name", "Milliken Medical Group - Morgan Buda, MD"], ["address", "224 Circle Drive, Traverse City, MI 49684"], ["description", "My training in LGBTQ medicine at the University of Minnesota has given me the experience to best serve the LGBTQ community in Northern Michigan. I am competent in HRT for transgender and gender non-binary folks as well as PrEP medication management."], ["website", "munsonhealthcare.org/find-a-doctor"], ["phone", "231-935-0600"], ["lat", "44.76096"], ["long", "-85.64269"], ["created_at", "2022-04-12 21:59:49.715345"], ["updated_at", "2022-04-12 21:59:49.715345"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Load (0.0ms)[0m  [1m[34mSELECT "identities".* FROM "identities" WHERE "identities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mService Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Create (0.1ms)[0m  [1m[32mINSERT INTO "listings" ("identity_id", "service_id", "location_id", "name", "address", "description", "website", "phone", "lat", "long", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["identity_id", 3], ["service_id", 1], ["location_id", 2], ["name", "Full Spectrum Family Medicine"], ["address", "2025 Abbot Rd, Suite 100, East Lansing, MI 48823"], ["description", "We are a privately owned primary care practice with a focus on integrative and functional medicine. We have a growing population of transgender patients and pride ourselves on providing high quality, compassionate care."], ["website", "www.fullspectrumfamilymed.com"], ["phone", "517-333-3550"], ["lat", "42.75778"], ["long", "-84.48438"], ["created_at", "2022-04-12 21:59:49.718184"], ["updated_at", "2022-04-12 21:59:49.718184"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Load (0.0ms)[0m  [1m[34mSELECT "identities".* FROM "identities" WHERE "identities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mService Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Create (0.1ms)[0m  [1m[32mINSERT INTO "listings" ("identity_id", "service_id", "location_id", "name", "address", "description", "website", "phone", "lat", "long", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["identity_id", 3], ["service_id", 1], ["location_id", 2], ["name", "MSU Family Medicine Clinic - Jessica Heselschwerdt"], ["address", "804 Service Rd, A235, East Lansing, MI 488824"], ["description", "I am a family medicine physician practicing in the Department of Family and Community Medicine at MSU. In addition to practicing most aspects of family medicine (other than delivering babies!), one of the services I provide for my patients is hormone therapy for gender transition."], ["website", "www.healthteam.msu.edu/providers"], ["phone", "517-335-1300"], ["lat", "42.71802"], ["long", "-84.46904"], ["created_at", "2022-04-12 21:59:49.720693"], ["updated_at", "2022-04-12 21:59:49.720693"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Load (0.0ms)[0m  [1m[34mSELECT "identities".* FROM "identities" WHERE "identities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mService Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mListing Create (0.1ms)[0m  [1m[32mINSERT INTO "listings" ("identity_id", "service_id", "location_id", "name", "address", "description", "website", "phone", "lat", "long", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["identity_id", 3], ["service_id", 1], ["location_id", 3], ["name", "Bronson Diabetes and Endocrinology Center"], ["address", "7901 S 12th St Ste 200, Portage MI 49024"], ["description", "We are delighted to see transgender and gender non-conforming individuals age 18 and up and to prescribe hormones. Our office staff uses preferred name and pronoun. If needed, we can help connect you with other trans friendly providers in the area including expert mental health professionals, primary care providers, gynecology, and surgeons. A letter from a mental health professional in support of your transition is helpful if available but is not required."], ["website", ""], ["phone", "269-341-8585"], ["lat", "42.20268"], ["long", "-85.64682"], ["created_at", "2022-04-12 21:59:49.723125"], ["updated_at", "2022-04-12 21:59:49.723125"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Load (0.0ms)[0m  [1m[34mSELECT "identities".* FROM "identities" WHERE "identities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mService Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mListing Create (0.1ms)[0m  [1m[32mINSERT INTO "listings" ("identity_id", "service_id", "location_id", "name", "address", "description", "website", "phone", "lat", "long", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["identity_id", 3], ["service_id", 1], ["location_id", 4], ["name", "Great Lakes Bay Health Centers - Craig Weeks, MD"], ["address", "1522 Janes Avenue, Saginaw, MI 48601"], ["description", "I am a family physician with a passion for serving the underserved. In addition to general primary care, I also provide care to people living with HIV and Hepatitis C, preexposure prophylaxis (PrEP) for HIV prevention, Suboxone for those with opiate use disorder, and gender-affirming hormone treatment for gender-diverse individuals."], ["website", "www.greatlakesbayhealthcenters.org"], ["phone", "989-755-0316"], ["lat", "43.42896"], ["long", "-8392371"], ["created_at", "2022-04-12 21:59:49.725607"], ["updated_at", "2022-04-12 21:59:49.725607"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Load (0.0ms)[0m  [1m[34mSELECT "identities".* FROM "identities" WHERE "identities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mService Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.1ms)[0m  [1m[32mINSERT INTO "listings" ("identity_id", "service_id", "location_id", "name", "address", "description", "website", "phone", "lat", "long", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["identity_id", 3], ["service_id", 1], ["location_id", 5], ["name", "Mott Children's Hospital - Daniel Schumer MD, MPH"], ["address", "1540 E Hospital Dr, Ann Arbor, MI 48109"], ["description", "The Gender Management (GEM) Program at Mott Children’s Hospital has been developed to care for transgender and gender non-conforming patients.  This program works hand-in-hand with the University of Michigan Health System Comprehensive Gender Services Program (UMHS-CGSP).  Dr. Daniel Shumer is a Pediatric Endocrinologist at GEM who is experienced at working with transgender youth.  He follows the World Professional Association of Transgender Health (WPATH) guidelines to help adolescents with transition, including puberty suppression (blockers) and cross-sex hormones (such as testosterone and estrogen)."], ["website", "www.mottchildren.org"], ["phone", "734-764-5175"], ["lat", "42.28196"], ["long", "-83.72715"], ["created_at", "2022-04-12 21:59:49.728074"], ["updated_at", "2022-04-12 21:59:49.728074"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Load (0.0ms)[0m  [1m[34mSELECT "identities".* FROM "identities" WHERE "identities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mService Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.1ms)[0m  [1m[32mINSERT INTO "listings" ("identity_id", "service_id", "location_id", "name", "address", "description", "website", "phone", "lat", "long", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["identity_id", 3], ["service_id", 1], ["location_id", 5], ["name", "Henry Ford Hospital, Division of Endocrinology - Jessica Shill, MD"], ["address", "3031 W. Grand Blvd, Suite 800, Detroit MI 48202"], ["description", "I see transgender and gender non-conforming patients ages 15 and above. I also supervise the endocrinologists in training (fellows) in our division so they learn how to assist transgender and gender non-conforming people with gender-affirming therapy. We have a thriving practice, and see many transgender and gender non-conforming people each week."], ["website", "www.henryford.com"], ["phone", "313-916-2141"], ["lat", "42.36728"], ["long", "-83.08508"], ["created_at", "2022-04-12 21:59:49.730556"], ["updated_at", "2022-04-12 21:59:49.730556"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Load (0.0ms)[0m  [1m[34mSELECT "identities".* FROM "identities" WHERE "identities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mService Load (0.0ms)[0m  [1m[34mSELECT "services".* FROM "services" WHERE "services"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.1ms)[0m  [1m[32mINSERT INTO "listings" ("identity_id", "service_id", "location_id", "name", "address", "description", "website", "phone", "lat", "long", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["identity_id", 3], ["service_id", 1], ["location_id", 5], ["name", "The Ruth Ellis Health and Wellness Center"], ["address", "77 Victor St, Highland Park, MI 48203"], ["description", "The Ruth Ellis Health and Wellness Center is a primary care clinic for LGBTQ adolescents and young adults ages 10-30 years old.  Services include general primary care, well visits, gender affirming hormones, PrEP for HIV prevention, HIV treatment, STD testing and treatment, birth control, mental health services, and case management.  We are able to see patients regardless of their insurance status and labs and medications are covered by our program for uninsured patients."], ["website", "www.ruthelliscenter.org"], ["phone", "313-365-3338"], ["lat", "42.40752"], ["long", "-83.09501"], ["created_at", "2022-04-12 21:59:49.733031"], ["updated_at", "2022-04-12 21:59:49.733031"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "listing_id", "text", "created_at", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["listing_id", 6], ["text", "lorem ipsum dolor sit amet"], ["created_at", "2022-04-12 21:59:49.738668"], ["updated_at", "2022-04-12 21:59:49.738668"], ["username", "sam"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "listing_id", "text", "created_at", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["listing_id", 6], ["text", "lorem ipsum dolor sit amet"], ["created_at", "2022-04-12 21:59:49.740815"], ["updated_at", "2022-04-12 21:59:49.740815"], ["username", "sam"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "listing_id", "text", "created_at", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["listing_id", 6], ["text", "lorem ipsum dolor sit amet"], ["created_at", "2022-04-12 21:59:49.742830"], ["updated_at", "2022-04-12 21:59:49.742830"], ["username", "ryan"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/listings" for 127.0.0.1 at 2022-04-12 18:00:06 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.84ms)
+Completed 200 OK in 41ms (Views: 32.9ms | ActiveRecord: 1.7ms | Allocations: 55100)
+
+
+Started GET "/listings" for ::1 at 2022-04-12 18:00:09 -0400
+Processing by ListingsController#index as HTML
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.33ms)
+Completed 200 OK in 37ms (Views: 33.4ms | ActiveRecord: 2.1ms | Allocations: 18146)
+
+
+Started GET "/listings" for ::1 at 2022-04-12 18:00:46 -0400
+Processing by ListingsController#index as HTML
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.56ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 1.4ms | Allocations: 18145)
+
+
+Started GET "/listings" for ::1 at 2022-04-12 18:01:11 -0400
+Processing by ListingsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.04ms)
+Completed 200 OK in 34ms (Views: 30.0ms | ActiveRecord: 1.8ms | Allocations: 36507)
+
+
