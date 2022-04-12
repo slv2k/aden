@@ -1,10 +1,13 @@
 import React from "react";
 import CommentForm from "./CommentForm";
 
-function Comments() {
+function Comments({ text }) {
+    // TODO: get user's username for each comment
     return (
-        <div>comments
-            <CommentForm />
+        <div className='commentcard'>
+            {/* <CommentForm /> */}
+            {/* <p>{userid}</p> */}
+            <p>{text}</p>
         </div>
     )
 }

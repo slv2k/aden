@@ -17,6 +17,7 @@
   margin-top: 0px;
   padding-top: 23px;
   font-size: 65px;
+  color: #b1a9bd;
   /* background: -webkit-linear-gradient(0deg, #ea858c, #5295cb);
   background-clip: text;
   -webkit-background-clip: text;
@@ -109,19 +110,177 @@ label {
   margin-top: -55px;
 }
 
-#searchbutton {
-  background-color: transparent;
-  border: none;
+#contentcontainer {
+  width: 70%;
   margin: 0 auto;
   left: 0;
   right: 0;
-  display: block;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: 'Rubik Mono One', sans-serif;
-  font-size: 23px;
-  letter-spacing: 5px;
+  position: absolute;
+  margin-top: 625px;
 }
 
-#searchbutton:hover {
-  color: rgba(255, 255, 255, 1);
+#contentcontainer h1 {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 30px;
+}
+
+#contentcontainer i {
+  font-style: normal;
+  /* font-family: 'Rubik Mono One', sans-serif; */
+  color:rgb(177, 169, 189);
+}
+
+#listingscontainer {
+  /* background-color: red; */
+  margin-top: 50px;
+}
+
+.listingcard {
+  /* background-color: green; */
+  /* background-color: red; */
+  border-bottom: 1px solid black;
+  margin-bottom: 25px;
+}
+
+.listingcard h3 {
+  /* color: green; */
+  color: #b1a9bd;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 25px;
+  /* padding: 25px 25px 0 25px; */
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.listingcard p {
+  width: 80%;
+  margin: 0 auto;
+  text-align: justify;
+  font-family: 'Epilogue', sans-serif;
+  margin-bottom: 15px;
+}
+
+.listingcard h5 {
+  width: 80%;
+  /* margin-left: 50px; */
+  margin: 0 auto;
+  margin-bottom: 15px;
+  font-family: 'Epilogue', sans-serif;
+  /* font-weight: bold; */
+  font-size: 18px;
+}
+
+.listingcard h6 {
+  display: inline;
+}
+
+.listingcard h4 {
+  text-align: center;
+  user-select: none;
+  background-color: rgba(177, 169, 189, 0.8);
+  width: 150px;
+  padding: 8px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  /* font-family: 'Rubik Mono One', sans-serif; */
+  /* font-family: 'Rubik Mono One', sans-serif; */
+}
+
+.listingcard h4:hover {
+  background-color: rgb(177, 169, 189);
+}
+
+.listingcard form {
+  /* background-color: green; */
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.listingcard form button {
+  /* background-color: red; */
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  border: none;
+  background-color: rgba(177, 169, 189, 0.8);
+  /* padding: 10px 20px 10px 20px; */
+  padding: 5px 10px 5px 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  /* font-family: 'Epilogue', sans-serif; */
+  color: white;
+  /* font-family:Arial, Helvetica, sans-serif; */
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bolder;
+  font-size: 12px;
+
+}
+
+.listingcontact {
+  /* background-color: green; */
+  margin: 0 auto;
+  /* width: 50%; */
+  text-align: center;
+}
+
+.listingcontact p {
+  display: inline;
+  margin: 0 20px 0 20px;
+}
+
+.listingcontact a {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 18px;
+  text-decoration: underline;
+  color: black;
+}
+
+.listingcontact h6 {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 18px;
+}
+
+.commentcard {
+  background-color: yellow;
+  width: 70%;
+  margin: 0 auto;
+}
+
+
+#underneathfilter {
+  /* background-color: red; */
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 60%;
+  position: absolute;
+  margin-top: 610px;
+  /* display: inline-block; */
+  /* display: inline; */
+  text-align: center;
+}
+
+#underneathfilter h1 {
+  /* color: green; */
+  display: inline;
+  margin: 10px;
+  font-family: 'Epilogue', sans-serif;
+  cursor: pointer;
+  user-select: none;
+  font-size: 20px;
+}
+
+#underneathfilter a {
+  /* text-align: center; */
+  font-family: Helvetica, sans-serif;
+  /* font-weight: lighter; */
+  cursor: default;
+  font-weight: lighter;
 }

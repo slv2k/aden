@@ -2,7 +2,7 @@ import React from "react";
 import Listings from "./Listings";
 import Map from "./Map";
 
-function ListingsContainer({ listings }) {
+function ListingsContainer({ listings, identity, service, location }) {
 
     let listingCards = listings.map((listing) => {
         return (
@@ -13,6 +13,7 @@ function ListingsContainer({ listings }) {
             description={listing.description}
             website={listing.website}
             phone={listing.phone}
+            comments={listing.comments}
             />
         )
     })
@@ -20,7 +21,8 @@ function ListingsContainer({ listings }) {
     // console.log("listing from listingscontainer", listings)
 
     return (
-        <div>listings container shown
+        <div id='contentcontainer'>
+            <h1>results for <i>{identity}</i> <i>{service}</i> near <i>{location}</i></h1>
             {/* <Map /> */}
             <div id='listingscontainer'>
                 {listingCards}

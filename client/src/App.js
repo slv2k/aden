@@ -175,7 +175,10 @@ function App() {
           <div className="arrow"></div>
         </form>
       </div>
-      {showListings ? <ListingsContainer listings={filteredListings} /> : null}
+      <div id='underneathfilter'>
+        <h1>post a listing</h1><a>|</a><h1>how to use</h1>
+      </div>
+      {showListings ? <ListingsContainer listings={filteredListings} identity={identity} service={service} location={location} /> : null}
       {/* <ListingsContainer listings={listings} /> */}
     </div>
   );
