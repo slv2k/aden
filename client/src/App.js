@@ -10,6 +10,7 @@ function App() {
   const [service, setService] = useState("");
   const [location, setLocation] = useState("");
 
+  const [profileEditingState, toggleProfileEditingState] = useState(false);
   const [currentUser, setCurrentUser] = useState([]);
   const [usersArray, setUsersArray] = useState([]);
   const [showLoginForm, toggleShowLoginForm] = useState(false);
@@ -203,6 +204,7 @@ function App() {
   function handleShowProfilePage() {
     toggleShowProfilePage(true);
     toggleShowLoginForm(false);
+    toggleShowListings(false);
     // console.log("clicked profile page button"s)
     
     console.log(currentUser);
@@ -211,6 +213,31 @@ function App() {
   function handleHideProfilePage() {
     toggleShowProfilePage(false);
     console.log("closed")
+  }
+
+  function handleEditProfilePage() {
+    toggleProfileEditingState(true);
+  }
+
+  function handleUpdateProfile() {
+    toggleProfileEditingState(false);
+
+    // TODO: fix profile bio update logic
+
+    // let updateObj = {
+    //   bio: bio,
+    // };
+    // fetch(`/users/${currentUser.id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Accept": "application/json"
+    //   },
+    //   body: JSON.stringify(updateObj),
+    // })
+    // .then((r) => r.json())
+    // .then((messages) => {console.log(messages)})
+    // .then()
   }
 
   return (
@@ -247,14 +274,25 @@ function App() {
         <div id='profilepage'>
           <h2>{username}'s profile</h2>
           <h3>{email}</h3>
-          <p>{bio}</p>
-          <p onClick={handleHideProfilePage}>close profile page</p>
+          {/* <p>{bio}</p> */}
+          {profileEditingState ? 
+          <form onSubmit={handleUpdateProfile}>
+            {/* <input type="text" name="bio" value={bio} onChange={(e) => setBio(e.target.value)} /> */}
+            <textarea name="bio" value={bio} onChange={(e) => setBio(e.target.value)} rows="5"></textarea>
+            <button type="submit">update</button>
+          </form>
+          : <p>{bio}</p>
+          }
+          {/* <button onClick={handleEditProfilePage} className='profilepagebutton'>edit</button> */}
+          {profileEditingState ? null : <button onClick={handleEditProfilePage} className="profileditbutton">edit</button>}
+          {/* <button onClick={handleHideProfilePage} className="profileeditbutton">close profile page</button> */}
+          {profileEditingState ? null : <button onClick={handleHideProfilePage} className="profileeditbutton">close profile page</button>}
         </div>
       :
       null
       }
-
       <div id="filter">
+      {showProfilePage ? null :
         <form>
           <label for="identityselect">I am </label>
           <select name="identityselect" className="filterdropdown" id="identitydropdown" onChange={handleIdentity}>
@@ -284,13 +322,17 @@ function App() {
           </select>
           <div className="arrow"></div>
         </form>
+}
       </div>
+      {showProfilePage ? null :
       <div id='underneathfilter'>
         <h1>post a listing</h1><a>|</a><h1>how to use</h1>
       </div>
+}
       {showListings ? <ListingsContainer listings={filteredListings} identity={identity} service={service} location={location} /> : null}
       {/* <ListingsContainer listings={listings} /> */}
     </div>
+    
   );
 }
 

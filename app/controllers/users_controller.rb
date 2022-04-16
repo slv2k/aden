@@ -44,7 +44,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         render json: { error: "User not found" }, status: :not_found
     end
 
-    def render_unprocessable_entity_response
-        render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
-    end
+    # def render_unprocessable_entity_response
+    #     render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+    # end
 end
