@@ -17,11 +17,27 @@
   margin-top: 0px;
   padding-top: 23px;
   font-size: 65px;
-  color: #b1a9bd;
+  /* color: #b1a9bd; */
+  color: transparent;
+  user-select: none;
+
+
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  /* cursor: pointer; */
   /* background: -webkit-linear-gradient(0deg, #ea858c, #5295cb);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
+}
+
+#header h1:hover {
+   /* background: -webkit-linear-gradient(0deg, #ea858c, #5295cb);
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent; */
+   /* background-size: 150% 150%;
+   animation: gradient 10s ease infinite; */
 }
 
 .filterdropdown {

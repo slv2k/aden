@@ -28710,3 +28710,767 @@ Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 3334)
 Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.6ms | Allocations: 19284)
 
 
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:29:29 -0400
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:29:29 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 15ms (Views: 8.4ms | ActiveRecord: 0.7ms | Allocations: 17897)
+
+
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.82ms)
+Completed 200 OK in 46ms (Views: 28.3ms | ActiveRecord: 1.3ms | Allocations: 62640)
+
+
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:29:32 -0400
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:29:32 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+Processing by UsersController#index as */*
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+  ↳ app/controllers/users_controller.rb:7:in `index'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 5583)
+
+
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.8ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.6ms | Allocations: 20601)
+
+
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:35:03 -0400
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:35:03 -0400
+Processing by UsersController#index as */*
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 2177)
+
+
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.04ms)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 1.6ms | Allocations: 19360)
+
+
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:41:20 -0400
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:41:20 -0400
+Processing by ListingsController#index as */*
+Processing by UsersController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[active_model_serializers]   [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.2ms | Allocations: 5675)
+
+
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.5ms)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 1.6ms | Allocations: 20973)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:42:03 -0400
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:42:03 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+Processing by ListingsController#index as */*
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 1438)
+
+
+  [1m[36mListing Load (0.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.24ms)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.9ms | Allocations: 18116)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:42:04 -0400
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:42:04 -0400
+Processing by ListingsController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mListing Load (0.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 3339)
+
+
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.83ms)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.5ms | Allocations: 19562)
+
+
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:42:39 -0400
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:42:39 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+Processing by UsersController#index as */*
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 4583)
+
+
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.67ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.4ms | Allocations: 19712)
+
+
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:42:40 -0400
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:42:40 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+Processing by UsersController#index as */*
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 4366)
+
+
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.57ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.6ms | Allocations: 19816)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:42:56 -0400
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:42:56 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 1190)
+
+
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.57ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.7ms | Allocations: 17865)
+
+
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 11:47:45 -0400
+Started GET "/users" for 127.0.0.1 at 2022-04-16 11:47:45 -0400
+Processing by ListingsController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mListing Load (0.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 3338)
+
+
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.53ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.4ms | Allocations: 19562)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-16 12:41:35 -0400
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 12:41:35 -0400
+Processing by UsersController#index as */*
+Processing by ListingsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.9ms | Allocations: 3005)
+
+
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.82ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 1.5ms | Allocations: 20655)
+
+
+Started POST "/comments" for 127.0.0.1 at 2022-04-16 12:42:22 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"user_id"=>1, "listing_id"=>6, "username"=>"test username", "text"=>"hi", "comment"=>{"user_id"=>1, "listing_id"=>6, "text"=>"hi", "username"=>"test username"}}
+[31mUnpermitted parameter: :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x000000010d7581a0>, params: {"user_id"=>1, "listing_id"=>6, "username"=>"test username", "text"=>"hi", "controller"=>"comments", "action"=>"create", "comment"=>{"user_id"=>1, "listing_id"=>6, "text"=>"hi", "username"=>"test username"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "listing_id", "text", "created_at", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["listing_id", 6], ["text", "hi"], ["created_at", "2022-04-16 16:42:22.167491"], ["updated_at", "2022-04-16 16:42:22.167491"], ["username", "test username"]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+[active_model_serializers] Rendered CommentSerializer with ActiveModelSerializers::Adapter::Attributes (0.71ms)
+Completed 201 Created in 12ms (Views: 1.2ms | ActiveRecord: 1.8ms | Allocations: 7369)
+
+
+Started DELETE "/comments/undefined" for 127.0.0.1 at 2022-04-16 12:42:24 -0400
+Processing by CommentsController#destroy as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:22:in `find_comment'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1353)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=undefined):
+  
+app/controllers/comments_controller.rb:22:in `find_comment'
+app/controllers/comments_controller.rb:14:in `destroy'
+Started DELETE "/comments/3" for 127.0.0.1 at 2022-04-16 12:42:26 -0400
+Processing by CommentsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:22:in `find_comment'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+  [1m[36mComment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:15:in `destroy'
+Completed 204 No Content in 6ms (ActiveRecord: 1.7ms | Allocations: 1859)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-16 12:42:28 -0400
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 12:42:28 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.98ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 1216)
+
+
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.83ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.7ms | Allocations: 17864)
+
+
+Started POST "/comments" for 127.0.0.1 at 2022-04-16 12:43:04 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"user_id"=>1, "listing_id"=>6, "username"=>"test username", "text"=>"helloooo", "comment"=>{"user_id"=>1, "listing_id"=>6, "text"=>"helloooo", "username"=>"test username"}}
+[31mUnpermitted parameter: :comment. Context: { controller: CommentsController, action: create, request: #<ActionDispatch::Request:0x000000010fa46ba8>, params: {"user_id"=>1, "listing_id"=>6, "username"=>"test username", "text"=>"helloooo", "controller"=>"comments", "action"=>"create", "comment"=>{"user_id"=>1, "listing_id"=>6, "text"=>"helloooo", "username"=>"test username"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mListing Load (0.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "listing_id", "text", "created_at", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["listing_id", 6], ["text", "helloooo"], ["created_at", "2022-04-16 16:43:04.104525"], ["updated_at", "2022-04-16 16:43:04.104525"], ["username", "test username"]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+[active_model_serializers] Rendered CommentSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 201 Created in 10ms (Views: 0.7ms | ActiveRecord: 1.5ms | Allocations: 3847)
+
+
+Started DELETE "/comments/undefined" for 127.0.0.1 at 2022-04-16 12:43:05 -0400
+Processing by CommentsController#destroy as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:22:in `find_comment'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 869)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=undefined):
+  
+app/controllers/comments_controller.rb:22:in `find_comment'
+app/controllers/comments_controller.rb:14:in `destroy'
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 12:43:16 -0400
+Started GET "/users" for 127.0.0.1 at 2022-04-16 12:43:16 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+Processing by UsersController#index as */*
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 5138)
+
+
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.12ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.9ms | Allocations: 19756)
+
+
+Started GET "/listings" for 127.0.0.1 at 2022-04-16 15:30:55 -0400
+Started GET "/users" for 127.0.0.1 at 2022-04-16 15:30:55 -0400
+Processing by UsersController#index as */*
+Processing by ListingsController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+  ↳ app/controllers/users_controller.rb:7:in `index'
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+  ↳ app/controllers/listings_controller.rb:4:in `index'
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.7ms | Allocations: 3492)
+
+
+[active_model_serializers]   [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 1]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 2]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 3]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 4]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 5]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 6]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 7]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = ?[0m  [["listing_id", 8]]
+[active_model_serializers]   ↳ app/controllers/listings_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.59ms)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 1.2ms | Allocations: 20820)
+
+

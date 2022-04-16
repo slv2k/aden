@@ -2,6 +2,28 @@ import './App.css';
 import ListingsContainer from './components/ListingsContainer';
 import { useState, useEffect } from "react";
 
+/*
+
+TO DO:
+
+maybe:
+- fix comment post/delete
+- fix user bio patch
+
+definitely:
+- add map
+- add bookmark feature
+    - add column to users: "bookmarked"
+    - when user clicks button, collect id of selected listing and add to bookmarked array
+    - add populate usual listings area with bookmarks when profile page is shown
+
+GET DONE TODAY:
+- add post listing feature
+- add column to listing: "submittedby" to be shown on appropriate listings
+- more seed data
+
+*/
+
 function App() {
   const [showListings, toggleShowListings] = useState(false);
   const [listings, setListings] = useState([]);
@@ -212,7 +234,10 @@ function App() {
 
   function handleHideProfilePage() {
     toggleShowProfilePage(false);
-    console.log("closed")
+    
+    if (identity !== "" && service !== "" && location !== "") {
+      toggleShowListings(true)
+    }
   }
 
   function handleEditProfilePage() {
