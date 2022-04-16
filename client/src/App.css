@@ -314,9 +314,9 @@ label {
   font-size: 18px;
   position: absolute;
   width: 250px;
-  /* height: 225px; */
-  max-height: 225px;
-  min-height: 150px;
+  /* height: 250px; */
+  max-height: 240px;
+  min-height: 140px;
   margin-left: -70px;
   margin-top: -1.5px;
   border: 1px solid black;
@@ -326,6 +326,25 @@ label {
 #loginform strong {
   font-weight: normal;
   text-decoration: underline;
+}
+
+#loginform button {
+  /* text-align: center; */
+  width: 70px;
+  height: 25px;
+  border: none;
+  background-color: white;
+  /* color: rgba(0, 0, 0, 0.5); */
+  font-size: 17px;
+  margin-top: 10px;
+  /* margin-bottom: -60px; */
+  margin-left: 80px;
+}
+
+#loginform button:hover {
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  /* color: rgba(0, 0, 0, 1);s */
+  border-bottom: 1px solid black;
 }
 
 #loginform p {
@@ -339,6 +358,10 @@ label {
   /* background-color: green; */
   width: 70%;
   margin-left: 32px;
+  border: none;
+  border-bottom: 1px solid black;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 15px;
 }
 
 #loginwelcome {
@@ -346,6 +369,40 @@ label {
   margin-left: -20px;
 }
 
-#loginwelcome strong {
+#loginwelcome p {
   cursor: pointer;
+  /* position: absolute; */
+  /* position: inline-block; */
+  /* position: absolute; */
+  /* margin-left: 100px; */
+  /* margin: 0 auto; */
+  margin-top: 20px;
+  border: 1px solid transparent;
+  width: 40%;
+  /* width: fit-content; */
+  
+  /* text-align: center; */
+  margin-left: 90px;
+}
+
+#loginwelcome p:hover {
+  border-bottom: 1px solid black;
+}
+
+#loginwelcome h3 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-left: 22px;
+}
+
+#profilepage {
+  background-color: red;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 65%;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 150px;
+  z-index: 10;
 }

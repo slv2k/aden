@@ -10,12 +10,14 @@ function App() {
   const [service, setService] = useState("");
   const [location, setLocation] = useState("");
 
+  const [currentUser, setCurrentUser] = useState([]);
   const [usersArray, setUsersArray] = useState([]);
   const [showLoginForm, toggleShowLoginForm] = useState(false);
+  const [showProfilePage, toggleShowProfilePage] = useState(false);
   const [loginState, setLoginState] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("hello");
   const [bio, setBio] = useState("");
   const [avatar, setAvatar] = useState("");
 
@@ -61,19 +63,24 @@ function App() {
 
   function handleLogin(e) {
     e.preventDefault();
+    toggleShowProfilePage(false);
     let findUser = function(element) {
       return element.username === username && element.password === password;
     }
 
     let detectUser = usersArray.filter(findUser);
-    // console.log(detectUser);
+    console.log(detectUser);
 
     if (detectUser.length === 1) {
       setLoginState(true);
-      console.log("should be true", loginState);
+      setCurrentUser(detectUser[0]);
+      toggleShowLoginForm(false);
+      // console.log("should be true", loginState);
     } else {
       console.log("incorrect info")
     }
+
+    // console.log(email, bio);
   }
 
   // filter logic
@@ -116,6 +123,12 @@ function App() {
     // console.log(currentState);
     return currentState;
   }
+
+  useEffect(() => {
+    setEmail(currentUser.email);
+    setBio(currentUser.bio);
+    setAvatar(currentUser.avatar);
+  }, [loginState])
 
   useEffect(() => {
     switch(identity) {
@@ -177,21 +190,27 @@ function App() {
     } else {
       toggleShowLoginForm(false);
     }
-    // console.log("clicked!")
-    // console.log(showLoginForm)
-
-    // if (loginState = false) {
-    //   const loginForm = () => {
-    //     return (
-    //       <div>hello</div>
-    //   )}
-    // }
   }
 
   function handleLogout() {
+    toggleShowProfilePage(false);
+    toggleShowLoginForm(false);
     setLoginState(false);
     setUsername("");
     setPassword("");
+  }
+
+  function handleShowProfilePage() {
+    toggleShowProfilePage(true);
+    toggleShowLoginForm(false);
+    // console.log("clicked profile page button"s)
+    
+    console.log(currentUser);
+  }
+
+  function handleHideProfilePage() {
+    toggleShowProfilePage(false);
+    console.log("closed")
   }
 
   return (
@@ -204,19 +223,11 @@ function App() {
           {/* {showLoginForm ? <p>true</p> : <p>false</p>} */}
           {showLoginForm ? 
           <div id='loginform'>
-            {/* <form onSubmit={handleLogin}>
-              <p>enter your username:</p>
-              <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-              <p>enter your password:</p>
-              <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-              <button type="submit">log in</button>
-              <p>or, <strong>create an account</strong></p>
-            </form> */}
             {loginState === true ? 
             <div id="loginwelcome">
-              <p>logged in as {username}</p>
-              <p>my profile</p>
-              <p onClick={handleLogout}><strong>log out</strong></p>
+              <h3>welcome, {username}!</h3>
+              <p onClick={handleShowProfilePage}>my profile</p>
+              <p onClick={handleLogout}>log out</p>
             </div>
             :
             <form onSubmit={handleLogin}>
@@ -232,6 +243,17 @@ function App() {
         
         </div>
       </div>
+      {showProfilePage ? 
+        <div id='profilepage'>
+          <h2>{username}'s profile</h2>
+          <h3>{email}</h3>
+          <p>{bio}</p>
+          <p onClick={handleHideProfilePage}>close profile page</p>
+        </div>
+      :
+      null
+      }
+
       <div id="filter">
         <form>
           <label for="identityselect">I am </label>
