@@ -10,6 +10,15 @@ function App() {
   const [service, setService] = useState("");
   const [location, setLocation] = useState("");
 
+  const [usersArray, setUsersArray] = useState([]);
+  const [showLoginForm, toggleShowLoginForm] = useState(false);
+  const [loginState, setLoginState] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [bio, setBio] = useState("");
+  const [avatar, setAvatar] = useState("");
+
   // useEffect(() => { console.log("useeffect detector:", identity)}, [identity])
   // useEffect(() => { console.log("useeffect detector:", service)}, [service])
   // useEffect(() => { console.log("useeffect detector:", location)}, [location])
@@ -40,6 +49,31 @@ function App() {
   function handleLocation(e) {
     changeStyle(e);
     setLocation(e.currentTarget.value);
+  }
+
+  useEffect(() => {
+    fetch("/users")
+    .then((r) => r.json())
+    .then((usersData) => {
+      setUsersArray(usersData)
+    });
+  }, []);
+
+  function handleLogin(e) {
+    e.preventDefault();
+    let findUser = function(element) {
+      return element.username === username && element.password === password;
+    }
+
+    let detectUser = usersArray.filter(findUser);
+    // console.log(detectUser);
+
+    if (detectUser.length === 1) {
+      setLoginState(true);
+      console.log("should be true", loginState);
+    } else {
+      console.log("incorrect info")
+    }
   }
 
   // filter logic
@@ -124,13 +158,10 @@ function App() {
         break;
     }
 
-    console.log(identityCode, serviceCode, locationCode)
+    // console.log(identityCode, serviceCode, locationCode)
 
     if (identity !== "" && service !== "" && location !== "") {
       setFilteredListings(filter());
-      // console.log(filteredListings)
-      // console.log(listings)
-      // filteredListings = filter();
       if (showListings === false) {
         toggleShowListings(true);
       }
@@ -139,10 +170,67 @@ function App() {
     }
   }, [identity, service, location])
 
+  function handleLoginForm() {
+    // toggleShowLoginForm(showLoginForm => !showLoginForm)
+    if (showLoginForm === false) {
+      toggleShowLoginForm(true);
+    } else {
+      toggleShowLoginForm(false);
+    }
+    // console.log("clicked!")
+    // console.log(showLoginForm)
+
+    // if (loginState = false) {
+    //   const loginForm = () => {
+    //     return (
+    //       <div>hello</div>
+    //   )}
+    // }
+  }
+
+  function handleLogout() {
+    setLoginState(false);
+    setUsername("");
+    setPassword("");
+  }
+
   return (
     <div id="appcontainer">
       <div id="header">
         <h1>ADEN</h1>
+        <div id='logintab'>
+          <div className='headerline' id='rightline'></div>
+          {loginState ? <p onClick={handleLoginForm}>my account</p> : <p onClick={handleLoginForm}>log in</p>}
+          {/* {showLoginForm ? <p>true</p> : <p>false</p>} */}
+          {showLoginForm ? 
+          <div id='loginform'>
+            {/* <form onSubmit={handleLogin}>
+              <p>enter your username:</p>
+              <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+              <p>enter your password:</p>
+              <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <button type="submit">log in</button>
+              <p>or, <strong>create an account</strong></p>
+            </form> */}
+            {loginState === true ? 
+            <div id="loginwelcome">
+              <p>logged in as {username}</p>
+              <p>my profile</p>
+              <p onClick={handleLogout}><strong>log out</strong></p>
+            </div>
+            :
+            <form onSubmit={handleLogin}>
+              <p>enter your username:</p>
+              <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+              <p>enter your password:</p>
+              <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <button type="submit">log in</button>
+              <p>or, <strong>create an account</strong></p>
+          </form>
+            }
+          </div> : null}
+        
+        </div>
       </div>
       <div id="filter">
         <form>

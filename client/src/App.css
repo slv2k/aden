@@ -284,3 +284,68 @@ label {
   cursor: default;
   font-weight: lighter;
 }
+
+#logintab {
+  position: absolute;
+  /* background-color: red; */
+  font-family: 'Epilogue', sans-serif;
+  font-size: 23px;
+  margin-left: 80%;
+  margin-top: -115px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.headerline {
+  width: 1px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+}
+
+#rightline {
+  margin-left: -70px;
+  /* margin-top: -20px; */
+}
+
+#loginform {
+  cursor: default;
+  background-color: white;
+  font-size: 18px;
+  position: absolute;
+  width: 250px;
+  /* height: 225px; */
+  max-height: 225px;
+  min-height: 150px;
+  margin-left: -70px;
+  margin-top: -1.5px;
+  border: 1px solid black;
+  border-top: none;
+}
+
+#loginform strong {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+#loginform p {
+  /* color: red; */
+  /* margin-left: 22px; */
+  /* margin-bottom: 5px; */
+  margin: 25px 0 10px 22px;
+}
+
+#loginform input {
+  /* background-color: green; */
+  width: 70%;
+  margin-left: 32px;
+}
+
+#loginwelcome {
+  text-align: center;
+  margin-left: -20px;
+}
+
+#loginwelcome strong {
+  cursor: pointer;
+}
