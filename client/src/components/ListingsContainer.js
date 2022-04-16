@@ -8,6 +8,7 @@ function ListingsContainer({ listings, identity, service, location }) {
         return (
             <Listings 
             key={listing.id}
+            listingid={listing.id}
             name={listing.name}
             address={listing.address}
             description={listing.description}
