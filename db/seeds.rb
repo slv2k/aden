@@ -22,13 +22,15 @@ both = Identity.create(identity: "both")
 
 # services:
 hormones = Service.create(service: "hormones")
+therapy = Service.create(service: "therapy")
 
 # locations:
-traversecity = Location.create(location: "traverse city") # 1
-lansing = Location.create(location: "lansing") # 2
-kalamazoo = Location.create(location: "kalamazoo") # 1
-flint = Location.create(location: "flint") # 1
-detroit = Location.create(location: "detroit") # 3
+traversecity = Location.create(location: "traverse city")
+lansing = Location.create(location: "lansing")
+kalamazoo = Location.create(location: "kalamazoo")
+flint = Location.create(location: "flint")
+detroit = Location.create(location: "detroit")
+grandrapids = Location.create(location: "grandrapids")
 
 # ----- LISTINGS -----
 
@@ -136,6 +138,114 @@ hormones8 = Listing.create(
     lat: "42.40752",
     long: "-83.09501"
 )
+
+# - therapists
+
+therapy1 = Listing.create(
+    identity_id: both.id,
+    service_id: therapy.id,
+    location_id: kalamazoo.id,
+    name: "Avalon Behavioral Health - Amy E. Raad, LMSW",
+    address: "491 E Columbia Ave Suite 4, Battle Creek, MI 49014",
+    description: "I am very passionate about transgender health and advocacy. I hold certificates in sex therapy and sexuality education from the University of Michigan in addition to my master's degree.",
+    website: "www.avalonbehavioralhealth.com",
+    phone: "269-962-9611",
+    lat: "42.29905",
+    long: "-85.17828"
+)
+
+therapy2 = Listing.create(
+    identity_id: both.id,
+    service_id: therapy.id,
+    location_id: traversecity.id,
+    name: "Clinical Stress Relief LLC",
+    address: "812 Garfield Ave., Traverse City, MI 49686",
+    description: "WPATH (World Professional Association for Transgender Health) Provider. Guidance and support for every phase of exploration, transition, and authentic living for gender-nonconforming folks and our 'S.O.F.F.A.' (Significant Others, Families, Friends, and Allies). Private, single-user restrooms.",
+    website: "www.clinicalstressrelief.com",
+    phone: "231-944-8200",
+    lat: "44.75270",
+    long: "-85.59614"
+)
+
+therapy3 = Listing.create(
+    identity_id: both.id,
+    service_id: therapy.id,
+    location_id: traversecity.id,
+    name: "Old Town Psychological Services",
+    address: "512 S. Union St., Traverse City, MI 49684",
+    description: "Over 30 years of personal/professional/political involvement in the GLBTQ community. Affiliated with the University of Michigan Gender Clinic. Ask specifically for an intake with Dr. Anderson. Most insurances accepted; sliding fee scale available.",
+    website: "www.oldtownpsych.com",
+    phone: "231-941-6550",
+    lat: "44.75885",
+    long: "-85.62411"
+)
+
+therapy4 = Listing.create(
+    identity_id: both.id,
+    service_id: therapy.id,
+    location_id: grandrapids.id,
+    name: "Arbor Circle Outpatient Counseling Services - Thomas J. Fox, LMSW, CAADC",
+    address: "1115 Ball Ave NE, Grand Rapids, Mi 49505",
+    description: "My name is TJ Fox and I am a therapist working in the Grand Rapids area.  I am also a trans man.  I have started working with other trans clients to assist them with their transition.  I work at an non profit organization called Arbor Circle.  We work with people with mental health and substance abuse disorders and they are very supportive of me working with trans clients.",
+    website: "www.arborcircle.org",
+    phone: "616-456-6571",
+    lat: "42.98292",
+    long: "-85.63107"
+)
+
+therapy5 = Listing.create(
+    identity_id: both.id,
+    service_id: therapy.id,
+    location_id: grandrapids.id,
+    name: "Co-Creation Counseling",
+    address: "625 Kenmoor Ave, Suite 201, Grand Rapids, MI 49546",
+    description: "Co-Creation Counseling is a holistic counseling practice. We provide LGBTQIA+ affirming care and are racial justice allies. Clients seek our support regarding sexuality, gender, trauma, and stress with life changes. We are virtual only and accept most major insurance companies. There is a sliding fee scale for those in need.",
+    website: "www.cocreationcounseling.com",
+    phone: "269-579-3875",
+    lat: "42.95295",
+    long: "-85.56726"
+)
+
+therapy6 = Listing.create(
+    identity_id: both.id,
+    service_id: therapy.id,
+    location_id: grandrapids.id,
+    name: "Pine Rest Christian Mental Health Services - Dr. Kimberly Kunze",
+    address: "3225 N. Evergreen Dr NE, Suite 301, Grand Rapids, MI  49525",
+    description: "I am a clinical psychologist at Pine Rest Christian Mental Health Services in Grand Rapids, MI, where I seek to affirm and celebrate gender and sexual diversity. I have focused on improving care and access to care for transgender/gender expansive/gender non-conforming individuals since 2012. I am a member of WPATH and can provide outpatient therapy for individuals, families, and couples. I am especially passionate about helping transgender folks who are having trouble being accepted or affirmed by their families, religious institutions, schools, or work. I love to coordinate care with doctors, endocrinologists, and surgeons who serve transgender/gender expansive/gender nonconforming individuals. I am proud to provide letters of support for hormone suppression, hormone replacement therapies and gender confirmation surgeries, when applicable.",
+    website: "www.pinerest.org",
+    phone: "616-364-1500",
+    lat: "43.02011",
+    long: "-85.58909"
+)
+
+therapy7 = Listing.create(
+    identity_id: both.id,
+    service_id: therapy.id,
+    location_id: flint.id,
+    name: "Fusion Consulting & Mental Healthh Services - Jackson Daly, MSCP, LLPC",
+    address: "550 S. Saginaw St. Lapeer, MI 48446",
+    description: "I specialize in anxiety and depression, conflict mediation and resolution, as well as issues related to gender identity and sexual orientation. I have experience working with adolescents and adults as well as individuals and groups experiencing difficulties with stress, self-esteem, identity, relationships, and personal and professional changes. My philosophical orientation is strongly influenced by Rogerian theory and the belief that, through qualities like genuineness, congruency, and positive regard, we can invite change into our lives. With these qualities as a foundation, I would like to encourage you to embrace therapy as a collaborative process; in this way, we can build a unique therapeutic relationship appropriate for your goals.",
+    website: "www.fusionmentalhealth.com",
+    lat: "43.04489",
+    long: "-83.30454"
+)
+
+therapy8 = Listing.create(
+    identity_id: both.id,
+    service_id: therapy.id,
+    location_id: detroit.id,
+    name: "Wentworth and Ass. - Erin S. Blumberg",
+    address: "11111 Hall Rd #203, Utica, MI 48317",
+    description: "I am a Licensed Professional Counselor with 29 years experience. I was active in Ferndale, where I live, to bring the current non discrimination ordinance into being. I work with any person who has issues... relationship, individual, or sexual without regard to gender orientation or lifestyle choices (kinky, open/poly). As a long time member of the Society for the Scientific Study of Sexuality I have been educated to a considerable degree about the problems faced by those whose physical birth gender does not match their internal sensed self.",
+    website: "www.wentworthandassociates.com",
+    lat: "42.62646",
+    long: "-83.02074"
+)
+
+# - community -
+
+
 
 # comments:
 comment1 = Comment.create(user_id: user1.id, listing_id: hormones6.id, username: user1.username, text: "lorem ipsum dolor sit amet")
