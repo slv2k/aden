@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :identities, only: :index
 
-  resources :listings, only: :index
+  resources :listings
 
   resources :comments
 

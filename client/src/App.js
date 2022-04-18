@@ -20,7 +20,8 @@ definitely:
 GET DONE TODAY:
 - add post listing feature
 - add column to listing: "submittedby" to be shown on appropriate listings
-- more seed data
+- create user function ; ehh....
+- comment css
 
 */
 
@@ -32,6 +33,8 @@ function App() {
   const [service, setService] = useState("");
   const [location, setLocation] = useState("");
 
+  const [creatingListing, toggleCreateListingState] = useState(false);
+  const [creatingUser, toggleCreatingUser] = useState(false);
   const [profileEditingState, toggleProfileEditingState] = useState(false);
   const [currentUser, setCurrentUser] = useState([]);
   const [usersArray, setUsersArray] = useState([]);
@@ -43,6 +46,15 @@ function App() {
   const [email, setEmail] = useState("hello");
   const [bio, setBio] = useState("");
   const [avatar, setAvatar] = useState("");
+
+  const [enteredIdentity, setEnteredIdentity] = useState("");
+  const [enteredLocation, setEnteredLocation] = useState("");
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredAddress, setEnteredAddress] = useState("");
+  const [enteredDescription, setEnteredDescription] = useState("");
+  const [enteredWebsite, setEnteredWebsite] = useState("");
+  const [enteredPhone, setEnteredPhone] = useState("");
+
 
   // useEffect(() => { console.log("useeffect detector:", identity)}, [identity])
   // useEffect(() => { console.log("useeffect detector:", service)}, [service])
@@ -98,6 +110,7 @@ function App() {
       setLoginState(true);
       setCurrentUser(detectUser[0]);
       toggleShowLoginForm(false);
+      toggleCreatingUser(false);
       // console.log("should be true", loginState);
     } else {
       console.log("incorrect info")
@@ -192,6 +205,9 @@ function App() {
       case "detroit":
         locationCode = 5;
         break;
+      case "grand rapids":
+        locationCode = 6;
+        break;
     }
 
     // console.log(identityCode, serviceCode, locationCode)
@@ -200,6 +216,7 @@ function App() {
       setFilteredListings(filter());
       if (showListings === false) {
         toggleShowListings(true);
+        // document.getElementById("lc").scrollIntoView();
       }
     } else {
       shownListings = null;
@@ -227,6 +244,7 @@ function App() {
     toggleShowProfilePage(true);
     toggleShowLoginForm(false);
     toggleShowListings(false);
+    toggleCreateListingState(false);
     // console.log("clicked profile page button"s)
     
     console.log(currentUser);
@@ -265,10 +283,144 @@ function App() {
     // .then()
   }
 
+  function startCreatingUser() {
+    console.log("create user button clicked")
+    toggleShowLoginForm(false);
+    toggleCreatingUser(true);
+    let theFilter = document.getElementById("filterform");
+    theFilter.style.display = "none";
+  }
+
+  function handleCreateUser(e) {
+    e.preventDefault();
+
+    fetch("/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+        email: email,
+        bio: "",
+        avatar: ""
+      })
+    })
+    .then((r) => r.json())
+    .then((newUser) => console.log(newUser))
+
+    setLoginState(true);
+    toggleShowLoginForm(false);
+    toggleCreatingUser(false);
+  }
+
+  function startCreatingListing() {
+    console.log("create listing button clicked");
+    let theFilter = document.getElementById("filterform");
+    theFilter.style.display = "none";
+    toggleCreateListingState(true);
+  }
+
+  function handlePostListing(e) {
+    e.preventDefault();
+    let identityId;
+    let selectedIdentity = document.querySelector('input[name="identity"]:checked').value;
+
+    let locationId;
+    let selectedLocation = document.getElementById("enteredlocationselect").value;
+
+    switch(selectedIdentity) {
+      case "transfeminine":
+        identityId = 1;
+        break;
+      case "transmasculine":
+        identityId = 2;
+        break;
+      case "both":
+        identityId = 3;
+        break;
+    }
+
+    switch(selectedLocation) {
+      case "traverse city":
+        locationId = 1;
+        break;
+      case "lansing":
+        locationId = 2;
+        break;
+      case "kalamazoo":
+        locationId = 3;
+        break;
+      case "flint":
+        locationId = 4;
+        break;
+      case "detroit":
+        locationId = 5;
+        break;
+      case "grand rapids":
+        locationId = 6;
+        break;
+    }
+
+    let newListing = {
+      identity_id: identityId,
+      service_id: 3,
+      location_id: locationId,
+      name: enteredName,
+      address: enteredAddress,
+      description: enteredDescription + ` - submitted by ${username}`,
+      website: enteredWebsite,
+      phone: enteredPhone,
+      lat: "",
+      long: ""
+    }
+
+    console.log(newListing);
+
+    fetch("/listings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: listings.length + 1,
+        identity_id: identityId,
+        service_id: 3,
+        location_id: locationId,
+        name: enteredName,
+        address: enteredAddress,
+        description: enteredDescription + ` - submitted by ${username}`,
+        website: enteredWebsite,
+        phone: enteredPhone,
+        lat: "",
+        long: ""
+      })
+    })
+    .then((r) => r.json())
+    .then(setListings([...listings, newListing]))
+    .then(console.log(listings))
+
+    toggleCreateListingState(false);
+    let theFilter = document.getElementById("filterform");
+    theFilter.style.display = "block";
+    // toggleShowProfilePage(false);
+  }
+
+  function handleReset() {
+    toggleShowProfilePage(false);
+    toggleShowLoginForm(false);
+    toggleShowListings(false);
+    toggleCreateListingState(false);
+
+    let theFilter = document.getElementById("filterform");
+    theFilter.style.display = "block";
+  }
+
   return (
     <div id="appcontainer">
       <div id="header">
-        <h1>ADEN</h1>
+        <h1 onClick={handleReset}>ADEN</h1>
         <div id='logintab'>
           <div className='headerline' id='rightline'></div>
           {loginState ? <p onClick={handleLoginForm}>my account</p> : <p onClick={handleLoginForm}>log in</p>}
@@ -288,13 +440,34 @@ function App() {
               <p>enter your password:</p>
               <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
               <button type="submit">log in</button>
-              <p>or, <strong>create an account</strong></p>
+              <p>or, <strong onClick={startCreatingUser}>create an account</strong></p>
           </form>
             }
           </div> : null}
         
         </div>
+        <div id='abouttab'>
+          <p>about</p>
+          <div className="headerline" id="leftline"></div>
+        </div>
       </div>
+
+
+      {creatingUser ? 
+      <div id='createnewuserform'>
+        <form onSubmit={handleCreateUser}>
+          <h3>welcome!</h3>
+          <p>enter your email:</p>
+          <input name="newuseremail" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <p>create a username:</p>
+          <input name="newusername" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <p>create a password:</p>
+          <input name="newpassword" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <button type="submit">sign up</button>
+        </form>
+      </div> 
+       : null}      
+
       {showProfilePage ? 
         <div id='profilepage'>
           <h2>{username}'s profile</h2>
@@ -318,7 +491,7 @@ function App() {
       }
       <div id="filter">
       {showProfilePage ? null :
-        <form>
+        <form id='filterform'>
           <label for="identityselect">I am </label>
           <select name="identityselect" className="filterdropdown" id="identitydropdown" onChange={handleIdentity}>
             <option value="" disabled selected>select an option</option>
@@ -344,17 +517,67 @@ function App() {
             <option value="kalamazoo">kalamazoo</option>
             <option value="flint">flint</option>
             <option value="detroit">detroit</option>
+            <option value="grand rapids">grand rapids</option>
           </select>
           <div className="arrow"></div>
         </form>
-}
+      }
       </div>
       {showProfilePage ? null :
       <div id='underneathfilter'>
-        <h1>post a listing</h1><a>|</a><h1>how to use</h1>
+        <h1 onClick={startCreatingListing}>post a listing</h1><h1 id='sepline'>|</h1><h1>how to use</h1>
       </div>
-}
-      {showListings ? <ListingsContainer listings={filteredListings} identity={identity} service={service} location={location} /> : null}
+      }
+      {creatingListing && loginState ?
+      <form id='createlistingform' onSubmit={handlePostListing}>
+        {/* <p onClick={toggleCreateListingState(false)}>close</p> */}
+        <h3>own a trans-friendly business or host a related meetup/group?</h3>
+        <h3>enter the details here!</h3>
+        <div id='firsttwoboxes'>
+          <p>name:</p>
+          <input type="text" name="name" value={enteredName} onChange={(e) => setEnteredName(e.target.value)} />
+          <p>address:</p>
+          <input type="text" name="address" value={enteredAddress} onChange={(e) => setEnteredAddress(e.target.value)} />
+          <p>nearest city:</p>
+          <select name="enteredlocationselect" id="enteredlocationselect">
+            <option value="" disabled selected>select...</option>
+            <option value="traverse city">traverse city</option>
+            <option value="lansing">lansing</option>
+            <option value="kalamazoo">kalamazoo</option>
+            <option value="flint">flint</option>
+            <option value="detroit">detroit</option>
+            <option value="grand rapids">grand rapids</option>
+          </select>
+        </div>
+        <div id='targetradiobuttons'>
+        <p>target audience:</p>
+          <div id='listingformradiobuttons'>
+            <input type="radio" name="identity" value="transmasculine" />
+            <label for="transmascs">transmasculine people</label>
+            <br />
+            <input type="radio" name="identity" value="transfeminine" />
+            <label for="transfems">transfeminine people</label>
+            <br />
+            <input type="radio" name="identity" value="both" />
+            <label for="both">both/nonbinary people</label>
+          </div>
+        </div>
+        <div id='thirdboxset'>
+        <p>description:</p>
+          <textarea name="description" value={enteredDescription} onChange={(e) => setEnteredDescription(e.target.value)} rows="5"></textarea>
+          <p id='desccharactercount'>{enteredDescription.length}/500 characters</p>
+          <p>website:</p>
+          <input type="text" name="website" value={enteredWebsite} placeholder="if not applicable, leave blank" onChange={(e) => setEnteredWebsite(e.target.value)} />
+          <p>phone number:</p>
+          <input type="text" name="phone" value={enteredPhone} onChange={(e) => setEnteredPhone(e.target.value)} />
+          <button type="submit">submit</button>
+        </div>
+      </form>
+      : null}
+      {creatingListing === true && loginState === false ? <p id='errormessage'>you must be logged in to do this!</p> : null}
+      {/* {creatingListing ? <p onClick={handleCloseListingCreate}>close</p> : null} */}
+      <div id='lc'></div>
+      {showListings ? <ListingsContainer listings={filteredListings} identity={identity} service={service} location={location} username={username} loginstate={loginState} /> : null}
       {/* <ListingsContainer listings={listings} /> */}
     </div>
     

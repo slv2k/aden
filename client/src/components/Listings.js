@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import Comments from "./Comments";
 import RatingForm from "./RatingForm";
 
-function Listings({ listingid, name, address, description, website, phone, comments }) {
+function Listings({ listingid, name, address, description, website, phone, comments, username, loginstate }) {
     const [showComments, toggleShowComments] = useState(false);
     const [commentText, setCommentText] = useState("");
     const [commentsArray, setCommentsArray] = useState(comments);
-    
+    const [bookmarkedState, setBookmarkedState] = useState(false);
+
+
     function onDelete(idToDelete) {
         // console.log("ondelete START")
         const filteredComments = commentsArray.filter(comment => comment.id !== idToDelete)
         setCommentsArray(filteredComments)
         console.log("comments array:", commentsArray)
         // console.log("ondeleteEND")
+    }
+
+    function handleBookmark() {
+        setBookmarkedState(bookmarkedState => !bookmarkedState)
     }
     
     
@@ -25,6 +31,7 @@ function Listings({ listingid, name, address, description, website, phone, comme
             username={comment.username}
             text={comment.text}
             handleDelete={onDelete}
+            currentuser={username}
             />
         )
     })
@@ -39,7 +46,7 @@ function Listings({ listingid, name, address, description, website, phone, comme
         let newComment = {
             user_id: 1,
             listing_id: listingid,
-            username: "test username",
+            username: username,
             text: commentText
         }
 
@@ -56,6 +63,7 @@ function Listings({ listingid, name, address, description, website, phone, comme
 
     return (
         <div className='listingcard'>
+            {bookmarkedState ? <img onClick={handleBookmark} src="https://cdn-icons-png.flaticon.com/512/786/786352.png"/> : <img onClick={handleBookmark} src="https://cdn-icons-png.flaticon.com/512/786/786251.png" />}
             <h3>{name}</h3>
             <h5>{address}</h5>
             <p>{description}</p>
@@ -71,10 +79,18 @@ function Listings({ listingid, name, address, description, website, phone, comme
             <div style={{ display: showComments ? "block" : "none"}}>
                 {commentCards}
                 <div className='postcommentform'>
+                    {/* <form onSubmit={handleSubmit}>
+                        <input type="text" name="commenttext" onChange={(e) => setCommentText(e.target.value)} />
+                        <button type="submit">post comment</button>
+                    </form> */}
+                    {loginstate ? 
                     <form onSubmit={handleSubmit}>
                         <input type="text" name="commenttext" onChange={(e) => setCommentText(e.target.value)} />
                         <button type="submit">post comment</button>
                     </form>
+                    :
+                    null
+                    }
                 </div>
             </div>
         </div>

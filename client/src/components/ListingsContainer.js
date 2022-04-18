@@ -2,7 +2,7 @@ import React from "react";
 import Listings from "./Listings";
 import Map from "./Map";
 
-function ListingsContainer({ listings, identity, service, location }) {
+function ListingsContainer({ listings, identity, service, location, username, loginstate }) {
 
     let listingCards = listings.map((listing) => {
         return (
@@ -15,6 +15,8 @@ function ListingsContainer({ listings, identity, service, location }) {
             website={listing.website}
             phone={listing.phone}
             comments={listing.comments}
+            username={username}
+            loginstate={loginstate}
             />
         )
     })

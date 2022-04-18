@@ -23,6 +23,7 @@ both = Identity.create(identity: "both")
 # services:
 hormones = Service.create(service: "hormones")
 therapy = Service.create(service: "therapy")
+community = Service.create(service: "community")
 
 # locations:
 traversecity = Location.create(location: "traverse city")
