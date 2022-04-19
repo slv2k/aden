@@ -1,5 +1,6 @@
 import './App.css';
 import ListingsContainer from './components/ListingsContainer';
+import Listings from './components/Listings';
 import { useState, useEffect } from "react";
 
 /*
@@ -46,6 +47,8 @@ function App() {
   const [email, setEmail] = useState("hello");
   const [bio, setBio] = useState("");
   const [avatar, setAvatar] = useState("");
+
+  // const [bookmarksArray, setBookmarksArray] = useState([]);
 
   const [enteredIdentity, setEnteredIdentity] = useState("");
   const [enteredLocation, setEnteredLocation] = useState("");
@@ -105,14 +108,16 @@ function App() {
 
     let detectUser = usersArray.filter(findUser);
     console.log(detectUser);
-
+    let message = document.getElementById("loginerrormessage");
     if (detectUser.length === 1) {
       setLoginState(true);
       setCurrentUser(detectUser[0]);
       toggleShowLoginForm(false);
       toggleCreatingUser(false);
+      message.style.display = "none";
       // console.log("should be true", loginState);
     } else {
+      message.style.display = "block";
       console.log("incorrect info")
     }
 
@@ -417,6 +422,41 @@ function App() {
     theFilter.style.display = "block";
   }
 
+  const [bookmarksArray, setBookmarksArray] = useState([]);
+
+  function addBookmark(newBookmark) {
+    setBookmarksArray([...bookmarksArray, newBookmark])
+    // console.log(bookmarksArray);
+  }
+
+  function removeBookmark(bookmarkToRemove) {
+    const filteredBookmarks = bookmarksArray.filter(listing => listing.id !== bookmarkToRemove.id)
+    setBookmarksArray(filteredBookmarks)
+    // console.log(bookmarksArray);
+  }
+
+  useEffect(() => { console.log("detected bookmarks change", bookmarksArray)}, [bookmarksArray])
+
+  let bookmarkCards = bookmarksArray.map((listing) => {
+    return (
+        <Listings 
+        key={listing.id}
+        listingid={listing.id}
+        name={listing.name}
+        address={listing.address}
+        description={listing.description}
+        website={listing.website}
+        phone={listing.phone}
+        comments={listing.comments}
+        username={username}
+        loginstate={loginState}
+        onAddBookmark={addBookmark}
+        onDeleteBookmark={removeBookmark}
+        detectBookmark={true}
+        />
+    )
+  })
+
   return (
     <div id="appcontainer">
       <div id="header">
@@ -439,6 +479,7 @@ function App() {
               <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
               <p>enter your password:</p>
               <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <p id='loginerrormessage' style={{display: "none"}}>error: incorrect info!</p>
               <button type="submit">log in</button>
               <p>or, <strong onClick={startCreatingUser}>create an account</strong></p>
           </form>
@@ -577,8 +618,15 @@ function App() {
       {creatingListing === true && loginState === false ? <p id='errormessage'>you must be logged in to do this!</p> : null}
       {/* {creatingListing ? <p onClick={handleCloseListingCreate}>close</p> : null} */}
       <div id='lc'></div>
-      {showListings ? <ListingsContainer listings={filteredListings} identity={identity} service={service} location={location} username={username} loginstate={loginState} /> : null}
+      {showListings ? <ListingsContainer listings={filteredListings} identity={identity} service={service} location={location} username={username} loginstate={loginState} onAddBookmark={addBookmark} onDeleteBookmark={removeBookmark} /> : null}
       {/* <ListingsContainer listings={listings} /> */}
+
+      {loginState === true && showProfilePage === true ? 
+      <div id='bookmarkscontainer'>
+        <h3>bookmarks:</h3>
+        {bookmarkCards}
+      </div> 
+      : null}
     </div>
     
   );

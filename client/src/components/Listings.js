@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Comments from "./Comments";
 import RatingForm from "./RatingForm";
 
-function Listings({ listingid, name, address, description, website, phone, comments, username, loginstate }) {
+function Listings({ listingid, name, address, description, website, phone, comments, username, loginstate, onAddBookmark, onDeleteBookmark, detectBookmark }) {
     const [showComments, toggleShowComments] = useState(false);
     const [commentText, setCommentText] = useState("");
     const [commentsArray, setCommentsArray] = useState(comments);
@@ -18,7 +18,32 @@ function Listings({ listingid, name, address, description, website, phone, comme
     }
 
     function handleBookmark() {
-        setBookmarkedState(bookmarkedState => !bookmarkedState)
+        // setBookmarkedState(bookmarkedState => !bookmarkedState)
+        console.log("listing id", listingid)
+
+        let listing = {
+            id: listingid,
+            name: name,
+            address: address,
+            description: description,
+            website: website,
+            phone: phone,
+            comments: comments,
+            username: username,
+            loginstate: loginstate,
+            onAddBookmark: onAddBookmark,
+            onDeleteBookmark: onDeleteBookmark
+        }
+
+        if (bookmarkedState === true) {
+            console.log("removed from bookmarks")
+            setBookmarkedState(false);
+            onDeleteBookmark(listing)
+        } else if (bookmarkedState === false) {
+            console.log("added to bookmarks")
+            setBookmarkedState(true);
+            onAddBookmark(listing);
+        }
     }
     
     
@@ -32,6 +57,7 @@ function Listings({ listingid, name, address, description, website, phone, comme
             text={comment.text}
             handleDelete={onDelete}
             currentuser={username}
+            loginstate={loginstate}
             />
         )
     })
@@ -61,9 +87,23 @@ function Listings({ listingid, name, address, description, website, phone, comme
         })
     };
 
+    // if (detectBookmark === true) {
+    //     let icon = document.getElementById('bookmarkicon');
+    //     icon.style.display = "none";
+
+    //     let commentsbutton = document.getElementById('commentsbutton');
+    //     commentsbutton.style.display = "none";
+    // }
+
+    // console.log(detectBookmark)
+
     return (
         <div className='listingcard'>
-            {bookmarkedState ? <img onClick={handleBookmark} src="https://cdn-icons-png.flaticon.com/512/786/786352.png"/> : <img onClick={handleBookmark} src="https://cdn-icons-png.flaticon.com/512/786/786251.png" />}
+            {detectBookmark ? null :
+            <div>
+                {bookmarkedState ? <img id='bookmarkicon' onClick={handleBookmark} src="https://cdn-icons-png.flaticon.com/512/786/786352.png"/> : <img id='bookmarkicon' onClick={handleBookmark} src="https://cdn-icons-png.flaticon.com/512/786/786251.png" />}
+            </div>
+            }
             <h3>{name}</h3>
             <h5>{address}</h5>
             <p>{description}</p>
@@ -73,7 +113,11 @@ function Listings({ listingid, name, address, description, website, phone, comme
                 <h6>{phone}</h6>
             </div>
             {/* <RatingForm /> */}
-            <h4 onClick={handleShowComments}>{commentsArray.length} comment{commentsArray.length === 1 ? "" : "s"}</h4>
+            {detectBookmark ? null :
+            <div>
+                <h4 id='commentsbutton' onClick={handleShowComments}>{commentsArray.length} comment{commentsArray.length === 1 ? "" : "s"}</h4>
+            </div>
+}
             {/* {comments.length > 0 ? <h4 onClick={handleShowComments}>{comments.length} comments</h4> : null} */}
             {/* {commentCards} */}
             <div style={{ display: showComments ? "block" : "none"}}>
