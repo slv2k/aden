@@ -137,7 +137,7 @@ label {
   left: 0;
   right: 0;
   position: absolute;
-  margin-top: 625px;
+  margin-top: 680px;
 }
 
 #contentcontainer h1 {
@@ -611,6 +611,10 @@ label {
   border-bottom: 1px solid white;
 }
 
+::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 #createlistingform {
   z-index: 10;
   position: absolute;
@@ -627,6 +631,32 @@ label {
   text-align: center;
   font-size: 20px;
   /* margin-top: -10px; */
+}
+
+#createlistingform button {
+  background-color: transparent;
+  border: none;
+  border: 1px solid transparent;
+  font-size: 25px;
+  font-family: 'Epilogue', sans-serif;
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 28px;
+  color: white;
+}
+
+#createlistingform button:hover {
+  border-bottom: 1px solid white;
+}
+
+/* input[type="radio"]:checked {
+  color: red;
+} */
+
+input[type="radio"] {
+	accent-color: white;
+
+  /* background-color: white; */
 }
 
 #firsttwoboxes {
@@ -650,20 +680,20 @@ label {
   color: white;
   font-family: 'Epilogue', sans-serif;
   font-size: 15px;
-  width: 220px;
+  width: 250px;
 }
 
 #firsttwoboxes select {
   font-size: 18px;
   border-bottom: 1px solid white;
   color: white;
-  width: 220px;
+  width: 250px;
 }
 
 #thirdboxset {
-  color: green;
+  color: white;
   margin-left: 450px;
-  margin-top: -320px;
+  margin-top: -325px;
   font-size: 20px;
   padding: 0;
   /* margin-bottom: 0; */
@@ -683,6 +713,34 @@ label {
   border: none;
   border: 1px solid white;
   width: 300px;
+  height: 110px;
+  resize: none;
+  color: white;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 15px;
+}
+
+#thirdboxset #desccharactercount {
+  font-size: 14px;
+  width: 300px;
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 0px;
+}
+
+#charwarning {
+  position: absolute;
+  margin-top: 0;
+}
+
+#thirdboxset input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 15px;
+  width: 250px;
 }
 
 #targetradiobuttons {
@@ -756,4 +814,79 @@ label {
   top: -20px;
   /* left: -20px; */
   text-align: center;
+}
+
+#confirmationmessage {
+  position: absolute;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 20px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin-top: 120px;
+  z-index: 15;
+}
+
+#tutorial {
+  position: absolute;
+  font-family: 'Epilogue', sans-serif;
+  z-index: 100;
+  width: 100%;
+  /* color:rgb(130, 120, 144); */
+}
+
+#first {
+  position: absolute;
+  margin-left: 820px;
+  margin-top: 300px;
+  /* color: red; */
+}
+
+#second {
+  position: absolute;
+  margin-left: 760px;
+  margin-top: 410px;
+}
+
+#third {
+  position: absolute;
+  margin-left: 785px;
+  margin-top: 518px;
+}
+
+#fourth {
+  position: absolute;
+  margin-left: 490px;
+  margin-top: 580px;
+}
+
+#fifth {
+  position: absolute;
+  margin-left: 980px;
+  margin-top: 105px;
+}
+
+#about {
+  /* display: none; */
+  position: absolute;
+  font-family: 'Epilogue', sans-serif;
+  width: 50%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  margin-top: 190px;
+  z-index: 1000;
+  color: white;
+}
+
+#about h3 {
+  /* color: green; */
+  font-size: 28px;
+}
+
+#about p {
+  text-align: justify;
+  font-size: 20px;
 }

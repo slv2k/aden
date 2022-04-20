@@ -48,6 +48,8 @@ function App() {
   const [bio, setBio] = useState("");
   const [avatar, setAvatar] = useState("");
 
+  const [tutorialState, setTutorialState] = useState(false);
+  const [aboutState, setAboutState] = useState(false);
   // const [bookmarksArray, setBookmarksArray] = useState([]);
 
   const [enteredIdentity, setEnteredIdentity] = useState("");
@@ -226,7 +228,7 @@ function App() {
     } else {
       shownListings = null;
     }
-  }, [identity, service, location])
+  }, [identity, service, location, listings])
 
   function handleLoginForm() {
     // toggleShowLoginForm(showLoginForm => !showLoginForm)
@@ -378,37 +380,59 @@ function App() {
       website: enteredWebsite,
       phone: enteredPhone,
       lat: "",
-      long: ""
+      long: "",
+      comments: [],
+      username: username,
+      loginstate: loginState,
+      onAddBookmark: addBookmark,
+      onDeleteBookmark: removeBookmark
     }
+
+    // setListings([...listings, newListing]);
+    let newArray = [...listings, newListing];
+    setListings(newArray);
+    console.log(listings);
 
     console.log(newListing);
 
-    fetch("/listings", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        id: listings.length + 1,
-        identity_id: identityId,
-        service_id: 3,
-        location_id: locationId,
-        name: enteredName,
-        address: enteredAddress,
-        description: enteredDescription + ` - submitted by ${username}`,
-        website: enteredWebsite,
-        phone: enteredPhone,
-        lat: "",
-        long: ""
-      })
-    })
-    .then((r) => r.json())
-    .then(setListings([...listings, newListing]))
-    .then(console.log(listings))
+    // fetch("/listings", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     id: listings.length + 1,
+    //     identity_id: identityId,
+    //     service_id: 3,
+    //     location_id: locationId,
+    //     name: enteredName,
+    //     address: enteredAddress,
+    //     description: enteredDescription + ` - submitted by ${username}`,
+    //     website: enteredWebsite,
+    //     phone: enteredPhone,
+    //     lat: "",
+    //     long: ""
+    //   })
+    // })
+    // .then((r) => r.json())
+    // .then(setListings([...listings, newListing]))
+    // .then(console.log(listings))
 
     toggleCreateListingState(false);
     let theFilter = document.getElementById("filterform");
     theFilter.style.display = "block";
+
+    let confirmationmessage = document.getElementById("confirmationmessage");
+    confirmationmessage.style.display = "block";
+
+    let fade_out = function() {
+      confirmationmessage.style.display = "none";
+    }
+
+    setTimeout(fade_out, 7000)
+
+
+
     // toggleShowProfilePage(false);
   }
 
@@ -417,6 +441,8 @@ function App() {
     toggleShowLoginForm(false);
     toggleShowListings(false);
     toggleCreateListingState(false);
+    setAboutState(false);
+    setTutorialState(false);
 
     let theFilter = document.getElementById("filterform");
     theFilter.style.display = "block";
@@ -457,6 +483,31 @@ function App() {
     )
   })
 
+  useEffect(() => { console.log("listings detector:", listings)}, [listings])
+
+  function handleTutorial() {
+    setTutorialState(tutorialState => !tutorialState);
+  }
+
+  function handleAbout() {
+    // setAboutState(aboutState => !aboutState)
+    let theFilter = document.getElementById("filterform");
+    // theFilter.style.display = "block";
+    // if (aboutState === true) {
+    //   theFilter.style.display = "none";
+    // } else if (aboutState === false) {
+    //   theFilter.style.display = "block";
+    // }
+
+    if (aboutState === false) {
+      setAboutState(true);
+      theFilter.style.display = "none";
+    } else {
+      setAboutState(false);
+      theFilter.style.display = "block";
+    }
+  }
+
   return (
     <div id="appcontainer">
       <div id="header">
@@ -488,10 +539,24 @@ function App() {
         
         </div>
         <div id='abouttab'>
-          <p>about</p>
+          <p onClick={handleAbout}>about</p>
           <div className="headerline" id="leftline"></div>
         </div>
       </div>
+
+      {tutorialState ? <div id='tutorial'>
+        <p id='first'>enter your identity</p>
+        <p id='second'>specify what you're looking for</p>
+        <p id='third'>select a city to search in</p>
+        <p id='fourth'>post information here</p>
+        <p id='fifth'>log in to comment and save listings</p>
+      </div> : null}
+
+      {aboutState ? <div id='about'>
+        <h3>hey!</h3>
+        <p>this is aden! it's a tool to help transgender people find and access healthcare, as well as personal connections. in my personal experience, it's very difficult to find one consolidated place to find this kind of information, and in the current political climate it's becoming even more difficult. it's my goal to help transgender people find the exact type of care or community they're looking for.</p>
+        <p>- sam</p>
+      </div> : null}
 
 
       {creatingUser ? 
@@ -530,6 +595,7 @@ function App() {
       :
       null
       }
+      <p id='confirmationmessage' style={{display: "none"}}>thank you for your submission!</p>
       <div id="filter">
       {showProfilePage ? null :
         <form id='filterform'>
@@ -566,7 +632,8 @@ function App() {
       </div>
       {showProfilePage ? null :
       <div id='underneathfilter'>
-        <h1 onClick={startCreatingListing}>post a listing</h1><h1 id='sepline'>|</h1><h1>how to use</h1>
+        <h1 onClick={startCreatingListing}>post a listing</h1><h1 id='sepline'>|</h1><h1 onClick={handleTutorial}>how to use</h1>
+        {/* <h1 onClick={startCreatingListing}>post a listing</h1> */}
       </div>
       }
       {creatingListing && loginState ?
@@ -606,7 +673,7 @@ function App() {
         <div id='thirdboxset'>
         <p>description:</p>
           <textarea name="description" value={enteredDescription} onChange={(e) => setEnteredDescription(e.target.value)} rows="5"></textarea>
-          <p id='desccharactercount'>{enteredDescription.length}/500 characters</p>
+          <p id='desccharactercount'>{enteredDescription.length}/500 characters {enteredDescription.length > 500 ? <p id='charwarning'>too long!</p> : null}</p>
           <p>website:</p>
           <input type="text" name="website" value={enteredWebsite} placeholder="if not applicable, leave blank" onChange={(e) => setEnteredWebsite(e.target.value)} />
           <p>phone number:</p>

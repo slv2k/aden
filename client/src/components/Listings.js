@@ -97,6 +97,13 @@ function Listings({ listingid, name, address, description, website, phone, comme
 
     // console.log(detectBookmark)
 
+    let bkIcon = document.getElementById("bookmarkicon");
+    if (loginstate === true) {
+        bkIcon.style.display = "block"
+    } else if (loginstate === false) {
+        bkIcon.style.display = "none";
+    }
+
     return (
         <div className='listingcard'>
             {detectBookmark ? null :
@@ -117,7 +124,7 @@ function Listings({ listingid, name, address, description, website, phone, comme
             <div>
                 <h4 id='commentsbutton' onClick={handleShowComments}>{commentsArray.length} comment{commentsArray.length === 1 ? "" : "s"}</h4>
             </div>
-}
+            }
             {/* {comments.length > 0 ? <h4 onClick={handleShowComments}>{comments.length} comments</h4> : null} */}
             {/* {commentCards} */}
             <div style={{ display: showComments ? "block" : "none"}}>
